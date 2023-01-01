@@ -1,0 +1,200 @@
+﻿<Window x:Class="SuccubScene.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuccubScene"
+        mc:Ignorable="d"
+        Title="SuccubScene" Height="768" Width="1366"
+          MouseDown="Canvas_MouseDown" MouseUp="Canvas_MouseUp" MouseMove="Canvas_MouseMove">
+    <Grid>
+        <Canvas Name="myCanvas">
+
+        </Canvas>
+        
+        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" 
+                   Margin="5"
+                   TextAlignment="Right"
+                   VerticalAlignment="Bottom" Foreground="#FFCDCDCD" FontSize="10"><Run Text="Разработал Ланцов Игорь"/><LineBreak/><Run Language="ru-ru" Text="Контакты для связи: "/><Run Text="lantsov.hk@gmail.com"/></TextBlock>
+
+        <TextBlock x:Name="timerLabel"
+                   Margin="5"
+               TextWrapping="Wrap" 
+                       Text="Время: 00:00" 
+                       Canvas.Top="10" TextAlignment="Center" 
+                       FontSize="18" HorizontalAlignment="Center" 
+                       VerticalAlignment="Top"/>
+
+        <WrapPanel Orientation="Horizontal" Width="200" HorizontalAlignment="Left">
+            <Button x:Name="saveButton" Content="Сохранить как" Margin="0 0 3 0" Click="saveButton_Click"/>
+            <Button x:Name="loadButton" Content="Загрузить" Click="loadButton_Click"/>
+        </WrapPanel>
+
+        <StackPanel 
+            Margin="5"
+            Width="200"
+            HorizontalAlignment="Right"
+                    
+                    Orientation="Vertical">
+            <Border x:Name="flowLayoutPanel1" BorderBrush="Gray" BorderThickness="2" Padding="10" Margin="0 0 0 10">
+                <StackPanel Orientation="Vertical">
+                    <Button x:Name="startButton" Content="Старт" HorizontalAlignment="Stretch" Margin="0 0 0 5" Click="startButton_Click"/>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="x1SpeedButton" Grid.Column="0" Grid.Row="0" Content="x1" Click="x1SpeedButton_Click"/>
+                        <Button x:Name="x1_5SpeedButton" Grid.Column="1" Grid.Row="0" Content="x1.5" Click="x1_5SpeedButton_Click"/>
+                        <Button x:Name="x2SpeedButton" Grid.Column="2" Grid.Row="0" Content="x2" Click="x2SpeedButton_Click"/>
+                        <Button x:Name="x3SpeedButton" Grid.Column="3" Grid.Row="0" Content="x3" Click="x3SpeedButton_Click"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Text="Скор. моделей(см/c):"
+                                   Margin="0 5"/>
+                        <TextBox x:Name="modelsSpeedTextBox" Grid.Column="4" Grid.Row="0" Margin="0 5"
+                                 PreviewTextInput="NumberValidationTextBox" Text="100" Height="18" PreviewKeyDown="modelsSpeedTextBox_PreviewKeyDown"/>
+                    </Grid>
+                    <Button x:Name="addStartPointButton" Content="Добавить выход" HorizontalAlignment="Stretch"
+                            Click="addStartPointButton_Click"/>
+                    <Button x:Name="addStopPointButton" Content="Добавить точку" HorizontalAlignment="Stretch" 
+                            Margin="0 5" Click="addStopPointButton_Click"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Text="Настроить линию:"/>
+                        <TextBox x:Name="lineEditTextBox" Grid.Column="3" Grid.Row="0" 
+                                 PreviewTextInput="NumberValidationTextBox" 
+                                 PreviewKeyDown="modelsSpeedTextBox_PreviewKeyDown"
+                                 TextChanged="lineEditTextBox_TextChanged" 
+                                 Grid.ColumnSpan="2" Margin="33,0,0,0"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="stopPointPanel" BorderBrush="Gray" BorderThickness="2" Padding="10">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="stopPointNameLabel" HorizontalAlignment="Stretch" Text="Точка номер 1"/>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Text="Время паузы(сек)"/>
+                        <TextBox x:Name="stopPointPauseTextBox" Grid.Column="4" Grid.Row="0"
+                                 PreviewKeyDown="modelsSpeedTextBox_PreviewKeyDown"
+                                 PreviewTextInput="NumberValidationTextBox" TextChanged="stopPointPauseTextBox_TextChanged"/>
+                    </Grid>
+                    <Button x:Name="deleteStopPointButton" Content="Удалить точку" HorizontalAlignment="Stretch" Margin="0 5 0 0" Click="deleteStopPointButton_Click" 
+                            />
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="groupPanel" BorderBrush="Gray" BorderThickness="2" Padding="10">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="groupNameLabel" HorizontalAlignment="Stretch" Text="Выход номер 1" Margin="0 0 0 5"/>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Text="Кол-во моделей:"/>
+                        <TextBox x:Name="numberOfModelsTextBox" Grid.Column="4" Grid.Row="0"
+                                 PreviewTextInput="NumberValidationTextBox"
+                                 PreviewKeyDown="modelsSpeedTextBox_PreviewKeyDown"/>
+
+                        <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Text="Задержка от старта:" Margin="0 3 0 0"/>
+                        <TextBox x:Name="groupDelayTextBox" Grid.Column="4" Grid.Row="1" 
+                                 PreviewKeyDown="modelsSpeedTextBox_PreviewKeyDown"
+                                 Margin="0 3 0 0"
+                                 PreviewTextInput="NumberValidationTextBox"/>
+
+                        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5" Text="Путь:"/>
+                        <TextBox x:Name="groupPathTextBox" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" />
+
+                        <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="5" Text="Период выхода моделей:"/>
+                        <TextBox x:Name="groupPeriodTextBox" Grid.Column="0" Grid.Row="5"
+                                 PreviewTextInput="NumberValidationTextBox"
+                                 PreviewKeyDown="modelsSpeedTextBox_PreviewKeyDown"/>
+                    </Grid>
+                    <Button x:Name="deleteGroupButton" Margin="0 5 0 0"  Content="Удалить выход" HorizontalAlignment="Stretch" Click="deleteGroupButton_Click"/>
+                    <Button x:Name="saveGroupButton" Margin="0 5 0 0"  Content="Сохранить" HorizontalAlignment="Stretch" Click="saveGroupButton_Click"/>
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="linePanel" BorderBrush="Gray" BorderThickness="2" Padding="10">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="lineEditNameLabel" HorizontalAlignment="Stretch" Text="Линия номер 1"/>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Text="Длина линии(см):"/>
+                        <TextBox x:Name="lineLengthEditTextBox" Grid.Column="4" Grid.Row="0"
+                                 TextChanged="lineLengthEditTextBox_TextChanged"
+                                 PreviewKeyDown="modelsSpeedTextBox_PreviewKeyDown"
+                                 PreviewTextInput="NumberValidationTextBox"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </Grid>
+</Window>

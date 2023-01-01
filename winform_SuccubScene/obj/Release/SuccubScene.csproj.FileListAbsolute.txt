@@ -1,0 +1,11 @@
+D:\Projects\Succub\SuccubScene\bin\Release\SuccubScene.exe.config
+D:\Projects\Succub\SuccubScene\bin\Release\SuccubScene.exe
+D:\Projects\Succub\SuccubScene\bin\Release\SuccubScene.pdb
+D:\Projects\Succub\SuccubScene\obj\Release\SuccubScene.csproj.AssemblyReference.cache
+D:\Projects\Succub\SuccubScene\obj\Release\SuccubScene.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Succub\SuccubScene\obj\Release\SuccubScene.SuccubSceneForm.resources
+D:\Projects\Succub\SuccubScene\obj\Release\SuccubScene.Properties.Resources.resources
+D:\Projects\Succub\SuccubScene\obj\Release\SuccubScene.csproj.GenerateResource.cache
+D:\Projects\Succub\SuccubScene\obj\Release\SuccubScene.csproj.CoreCompileInputs.cache
+D:\Projects\Succub\SuccubScene\obj\Release\SuccubScene.exe
+D:\Projects\Succub\SuccubScene\obj\Release\SuccubScene.pdb

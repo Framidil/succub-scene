@@ -1,0 +1,5 @@
+D:\Projects\Succub\SuccubScene\bin\Release\net6.0-windows\publish\SuccubScene.exe
+D:\Projects\Succub\SuccubScene\bin\Release\net6.0-windows\publish\SuccubScene.dll
+D:\Projects\Succub\SuccubScene\bin\Release\net6.0-windows\publish\SuccubScene.deps.json
+D:\Projects\Succub\SuccubScene\bin\Release\net6.0-windows\publish\SuccubScene.runtimeconfig.json
+D:\Projects\Succub\SuccubScene\bin\Release\net6.0-windows\publish\SuccubScene.pdb
